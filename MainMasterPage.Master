@@ -1,0 +1,37 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainMasterPage.master.cs" Inherits="SSAC_Project.MainMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="App_Themes/SSAC Theme/SSAC_StyleSheet.css" rel="stylesheet"/> 
+    <asp:ContentPlaceHolder ID="head" runat="server">
+       
+    </asp:ContentPlaceHolder>
+</head>
+<body >
+    <form id="form1" runat="server">
+        <div class="header"> 
+            <asp:Image id="Logo" runat="server" ImageUrl="~/Images/SSACLogo.png" Height="55px" Width="256px" AlternateText="SSAC Logo" />
+        </div>
+        <div class="menu">
+            <asp:SiteMapDataSource ID="smds" runat="server" ShowStartingNode="false"/>
+            <asp:Menu ID="menu" runat="server" DataSourceID="smds" ForeColor="Tomato" Font-Bold="False" Font-Italic="True" StaticSubMenuIndent="16px">
+                <StaticItemTemplate>
+                    <img src="Images/Bullet.png" alt= "+" width="16" height="16" style="border-width: 0;" />
+            <%# Eval("Text") %>
+          </StaticItemTemplate>
+        </asp:Menu>
+        </div>
+        <div class="content">
+            <asp:ContentPlaceHolder ID="body" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        
+        <div class="footer"> 
+            <asp:Label ID="lblFooter" Text="@SSAC-Shrish Surya Anand Chaithanya" runat="server" />
+        </div>
+    </form>  
+</body>
+</html>
